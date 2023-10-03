@@ -1,0 +1,7 @@
+resources:
+  - persistent-volume.yaml
+  - persistent-volume-claim.yaml
+  - influxdb-config.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml

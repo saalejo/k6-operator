@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: influxdb-ingress
+  namespace: k6-operator-system
+spec:
+  rules:
+  - host: influxdb.agapanto.com.co
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: influxdb-svc
+            port:
+              number: 8086
+  tls:
+  - hosts:
+    - influxdb.agapanto.com.co
+    secretName: influxdb-com-co

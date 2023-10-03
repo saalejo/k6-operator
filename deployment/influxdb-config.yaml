@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: influxdb-config
+  namespace: k6-operator-system
+  labels:
+    app: influxdb
+data:
+  DOCKER_INFLUXDB_INIT_MODE: setup
+  DOCKER_INFLUXDB_INIT_USERNAME: influxdbuser
+  DOCKER_INFLUXDB_INIT_PASSWORD: inluxdbpassword
+  DOCKER_INFLUXDB_INIT_ORG: sm
+  DOCKER_INFLUXDB_INIT_BUCKET: results
+  DOCKER_INFLUXDB_INIT_RETENTION: 1w
+  DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: inluxdbpassword

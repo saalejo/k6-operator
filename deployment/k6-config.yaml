@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k6-config
+  namespace: k6-operator-system
+  labels:
+    app: influxdb
+data:
+  K6_INFLUXDB_ORGANIZATION: sm
+  K6_INFLUXDB_BUCKET: results
+  K6_INFLUXDB_TOKEN: inluxdbpassword
+  K6_INFLUXDB_ADDR: http://influxdb-svc:8086

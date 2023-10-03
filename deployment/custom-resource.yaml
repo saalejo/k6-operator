@@ -1,0 +1,16 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-sample
+  namespace: k6-operator-system
+spec:
+  parallelism: 4
+  arguments: --out influxdb
+  script:
+    configMap:
+      name: crocodile-stress-test
+      file: test.js
+  runner:
+    envFrom:
+      - configMapRef:
+          name: k6-config

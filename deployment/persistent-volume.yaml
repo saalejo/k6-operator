@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: influxdb-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: k6-operator-system
+    name: influxdb-pvc
+  hostPath:
+    path: "/mnt/influxdb_data"
